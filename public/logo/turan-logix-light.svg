@@ -5,7 +5,7 @@
   <rect x="28.8" y="50" width="2.4" height="10" rx="1.2" fill="#b8923a" opacity="0.65"/>
   <rect x="29"   y="35" width="2"   height="8"  rx="1"   fill="#b8923a" opacity="0.42"/>
   <rect x="29.2" y="23" width="1.6" height="6"  rx="0.8" fill="#b8923a" opacity="0.26"/>
-  <g transform="translate(30,6)">
+  <g transform="translate(30,18)">
     <polygon points="0,-11 3,-3 11,0 3,3 0,11 -3,3 -11,0 -3,-3" fill="#b8923a"/>
     <polygon points="0,-11 3,-3 11,0 3,3 0,11 -3,3 -11,0 -3,-3" fill="#b8923a" transform="rotate(45)" opacity="0.38"/>
     <circle cx="0" cy="0" r="17" fill="none" stroke="#b8923a" stroke-width="0.5" opacity="0.22"/>
