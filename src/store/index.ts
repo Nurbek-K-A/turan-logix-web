@@ -2,6 +2,11 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import type { User } from '@/services/api'
 
+// Apply theme immediately before first render to avoid flash
+const _saved = localStorage.getItem('turanlogix-theme')
+const _initial: 'dark' | 'light' = _saved ? (JSON.parse(_saved)?.state?.theme ?? 'dark') : 'dark'
+document.documentElement.classList.toggle('dark', _initial === 'dark')
+
 interface AuthState {
   user: User | null
   token: string | null
@@ -43,7 +48,7 @@ interface ThemeState {
 export const useThemeStore = create<ThemeState>()(
   persist(
     (set) => ({
-      theme: 'dark',
+      theme: _initial,
       toggle: () =>
         set((s) => {
           const next = s.theme === 'dark' ? 'light' : 'dark'
