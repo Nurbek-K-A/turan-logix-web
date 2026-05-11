@@ -1,30 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" fill="none">
-  <circle cx="110" cy="110" r="106" stroke="#222222" stroke-width="2"/>
-  <circle cx="110" cy="110" r="94" stroke="#666666" stroke-width="0.7" opacity="0.5"/>
-
-  <path id="top-arc-bw" d="M 110,110 m -85,0 a 85,85 0 0,1 170,0" fill="none"/>
-  <text font-family="Manrope, system-ui, sans-serif" font-weight="500" font-size="10.5" fill="#555555" letter-spacing="2">
-    <textPath href="#top-arc-bw" startOffset="50%" text-anchor="middle">ГРУЗОВЫЕ ПЕРЕВОЗКИ · FREIGHT</textPath>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none">
+  <circle cx="120" cy="120" r="116" fill="#ffffff" stroke="#111111" stroke-width="1.5"/>
+  <circle cx="120" cy="120" r="100" fill="none" stroke="#111111" stroke-width="0.4" opacity="0.35"/>
+  <path id="sb-top" d="M 28,108 A 96,96 0 0,1 212,108" fill="none"/>
+  <text font-family="Manrope,system-ui,sans-serif" font-size="9" font-weight="600" fill="#222222" letter-spacing="2.5" opacity="0.80">
+    <textPath href="#sb-top" startOffset="7%">ГРУЗОВЫЕ ПЕРЕВОЗКИ · FREIGHT</textPath>
   </text>
-
-  <path id="bot-arc-bw" d="M 110,110 m -80,0 a 80,80 0 0,0 160,0" fill="none"/>
-  <text font-family="Manrope, system-ui, sans-serif" font-weight="500" font-size="10.5" fill="#555555" letter-spacing="2">
-    <textPath href="#bot-arc-bw" startOffset="50%" text-anchor="middle">ЦА · РОССИЯ · КИТАЙ · KZ</textPath>
+  <path id="sb-bot" d="M 24,128 A 96,96 0 0,0 216,128" fill="none"/>
+  <text font-family="Manrope,system-ui,sans-serif" font-size="8.5" font-weight="600" fill="#444444" letter-spacing="2" opacity="0.75">
+    <textPath href="#sb-bot" startOffset="9%">ЦА · РОССИЯ · КИТАЙ · KZ</textPath>
   </text>
-
-  <g transform="translate(110,88)">
-    <polygon points="16,88 44,88 36,10 24,10" fill="none" stroke="#222222" stroke-width="0.8" opacity="0.22" transform="translate(-30,-82) scale(0.72)"/>
-    <rect x="-1.08" y="-14" width="2.16" height="8.64" rx="1.08" fill="#222222" opacity="0.9"/>
-    <rect x="-0.86" y="-25.6" width="1.73" height="7.2" rx="0.86" fill="#222222" opacity="0.65"/>
-    <rect x="-0.72" y="-35" width="1.44" height="5.76" rx="0.72" fill="#222222" opacity="0.42"/>
-    <rect x="-0.58" y="-42.5" width="1.15" height="4.32" rx="0.58" fill="#222222" opacity="0.26"/>
-    <g transform="translate(0,-52)">
-      <polygon points="0,-11 3,-3 11,0 3,3 0,11 -3,3 -11,0 -3,-3" fill="#222222"/>
-      <polygon points="0,-11 3,-3 11,0 3,3 0,11 -3,3 -11,0 -3,-3" fill="#222222" transform="rotate(45)" opacity="0.38"/>
-      <circle cx="0" cy="0" r="17" fill="none" stroke="#222222" stroke-width="0.5" opacity="0.22"/>
-    </g>
+  <polygon points="106,168 134,168 126,96 114,96" fill="none" stroke="#222222" stroke-width="0.8" opacity="0.38"/>
+  <rect x="118.5" y="147" width="3"   height="12" rx="1.5" fill="#222222" opacity="0.85"/>
+  <rect x="118.8" y="129" width="2.4" height="10" rx="1.2" fill="#222222" opacity="0.60"/>
+  <rect x="119"   y="114" width="2"   height="8"  rx="1"   fill="#222222" opacity="0.38"/>
+  <rect x="119.2" y="103" width="1.6" height="6"  rx="0.8" fill="#222222" opacity="0.22"/>
+  <g transform="translate(120,82)">
+    <polygon points="0,-11 3,-3 11,0 3,3 0,11 -3,3 -11,0 -3,-3" fill="#111111"/>
+    <polygon points="0,-11 3,-3 11,0 3,3 0,11 -3,3 -11,0 -3,-3" fill="#111111" transform="rotate(45)" opacity="0.30"/>
+    <circle cx="0" cy="0" r="14" fill="none" stroke="#111111" stroke-width="0.5" opacity="0.20"/>
   </g>
-
-  <text x="110" y="148" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="18" fill="#1a1a1a" letter-spacing="4" text-anchor="middle">TURAN</text>
-  <text x="110" y="167" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="18" fill="#555555" letter-spacing="4" text-anchor="middle">LOGIX</text>
+  <text x="120" y="192" font-family="Manrope,system-ui,sans-serif" font-weight="800" font-size="18" fill="#1a1a1a" letter-spacing="3" text-anchor="middle">TURAN</text>
+  <text x="120" y="213" font-family="Manrope,system-ui,sans-serif" font-weight="800" font-size="18" fill="#555555" letter-spacing="3" text-anchor="middle">LOGIX</text>
 </svg>
