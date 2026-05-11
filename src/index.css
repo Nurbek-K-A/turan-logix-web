@@ -57,11 +57,63 @@
   }
 }
 
-/* Light theme overrides */
-.light {
+/* Light theme — warm cream palette to complement gold accent #c8a96e */
+html:not(.dark) {
   color-scheme: light;
 }
 
-.light body {
-  @apply bg-gray-50 text-gray-900;
+html:not(.dark) body {
+  background-color: #f5f0e8;
+  color: #1c1a14;
+}
+
+html:not(.dark) .bg-navy-900,
+html:not(.dark) .bg-dark-900 {
+  background-color: #f5f0e8 !important;
+}
+
+html:not(.dark) .bg-navy-800,
+html:not(.dark) .bg-dark-800 {
+  background-color: #ede8de !important;
+}
+
+html:not(.dark) .bg-navy-700,
+html:not(.dark) .bg-dark-700 {
+  background-color: #e4ddd1 !important;
+}
+
+html:not(.dark) .text-white {
+  color: #1c1a14 !important;
+}
+
+html:not(.dark) .text-gray-400 {
+  color: #6b6045 !important;
+}
+
+html:not(.dark) .text-gray-500 {
+  color: #857550 !important;
+}
+
+html:not(.dark) .border-white\/\[0\.06\],
+html:not(.dark) .border-white\/\[0\.07\],
+html:not(.dark) .border-white\/\[0\.08\],
+html:not(.dark) .border-white\/\[0\.10\] {
+  border-color: rgba(180, 150, 90, 0.15) !important;
+}
+
+html:not(.dark) .bg-white\/\[0\.03\],
+html:not(.dark) .bg-white\/\[0\.04\],
+html:not(.dark) .bg-white\/\[0\.05\] {
+  background-color: rgba(200, 169, 110, 0.06) !important;
+}
+
+/* Navbar in light theme */
+html:not(.dark) header {
+  background-color: rgba(245, 240, 232, 0.95) !important;
+  border-bottom-color: rgba(180, 150, 90, 0.15) !important;
+}
+
+html:not(.dark) header a,
+html:not(.dark) header button {
+  color: #3d3520;
 }
