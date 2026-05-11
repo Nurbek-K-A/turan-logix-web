@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /cabinet
+Disallow: /orders
+Disallow: /admin
+
+Sitemap: https://turanlogix.kz/sitemap.xml

@@ -1,0 +1,96 @@
+version: '3.9'
+
+services:
+  # ── Frontend ──────────────────────────────────────────────────
+  turanlogix-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: ${VITE_API_URL:-https://api.turanlogix.kz}
+        VITE_APP_URL: ${VITE_APP_URL:-https://turanlogix.kz}
+    container_name: turanlogix-web
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    networks:
+      - turanlogix-net
+    depends_on:
+      - turanlogix-api
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # ── API (from turan-logix-api repo) ───────────────────────────
+  turanlogix-api:
+    image: turanlogix/api:latest
+    container_name: turanlogix-api
+    restart: unless-stopped
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__DefaultConnection=Host=turanlogix-db;Port=5432;Database=turanlogix;Username=turanlogix;Password=${DB_PASSWORD}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - MAPBOX_ACCESS_TOKEN=${MAPBOX_ACCESS_TOKEN}
+      - AZURE_STORAGE_CONNECTION_STRING=${AZURE_STORAGE_CONNECTION_STRING}
+      - EMAIL_SMTP_HOST=${EMAIL_SMTP_HOST:-smtp.gmail.com}
+      - EMAIL_FROM=${EMAIL_FROM}
+      - EMAIL_PASSWORD=${EMAIL_PASSWORD}
+      - Jwt__SecretKey=${JWT_SECRET_KEY}
+    networks:
+      - turanlogix-net
+    depends_on:
+      turanlogix-db:
+        condition: service_healthy
+    expose:
+      - "8080"
+
+  # ── Database ──────────────────────────────────────────────────
+  turanlogix-db:
+    image: postgres:16-alpine
+    container_name: turanlogix-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: turanlogix
+      POSTGRES_USER: turanlogix
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - turanlogix-db-data:/var/lib/postgresql/data
+    networks:
+      - turanlogix-net
+    expose:
+      - "5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U turanlogix"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── Seq logging (optional) ────────────────────────────────────
+  seq:
+    image: datalust/seq:latest
+    container_name: turanlogix-seq
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA: "Y"
+    volumes:
+      - turanlogix-seq-data:/data
+    ports:
+      - "5341:80"
+    networks:
+      - turanlogix-net
+    profiles:
+      - debug
+
+networks:
+  turanlogix-net:
+    driver: bridge
+
+volumes:
+  turanlogix-db-data:
+  turanlogix-seq-data:

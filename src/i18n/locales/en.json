@@ -1,0 +1,168 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "routes": "Routes",
+    "about": "About",
+    "contacts": "Contacts",
+    "cabinet": "My Account",
+    "login": "Sign In",
+    "logout": "Sign Out",
+    "order": "Place Order"
+  },
+  "hero": {
+    "badge": "Reliable Logistics across Kazakhstan",
+    "title_1": "We deliver cargo",
+    "title_2": "on time",
+    "title_3": "and intact",
+    "subtitle": "TuranLogix — freight forwarding and cargo transportation across Kazakhstan. Trucks, vans, and consolidated shipments.",
+    "cta_order": "Calculate Cost",
+    "cta_chat": "Ask AI Assistant",
+    "scroll": "Scroll down"
+  },
+  "stats": {
+    "routes": "routes",
+    "clients": "clients",
+    "tons": "tons delivered",
+    "years": "years on market"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Full range of freight forwarding services",
+    "ftl": {
+      "title": "Full Truckload (FTL)",
+      "desc": "Transport of large cargo batches — one truck for one client. Ideal for high volumes and urgent deliveries."
+    },
+    "ltl": {
+      "title": "Less Than Truckload (LTL)",
+      "desc": "Economical transport of smaller batches alongside other cargo. Pay only for the space you use."
+    },
+    "express": {
+      "title": "Express Delivery",
+      "desc": "Urgent delivery within 24-48 hours. Vans and light trucks for fast shipments."
+    },
+    "cargo": {
+      "title": "China Cargo",
+      "desc": "Consolidated shipments from China. Consolidation, customs clearance, delivery to warehouse in Kazakhstan."
+    },
+    "docs": {
+      "title": "Documentation",
+      "desc": "Full support: contracts, waybills, CMR, acts. Electronic signature via NCALayer."
+    },
+    "tracking": {
+      "title": "Tracking",
+      "desc": "Real-time order monitoring. Notifications via Telegram, Email and WhatsApp."
+    }
+  },
+  "routes": {
+    "title": "Popular Routes",
+    "subtitle": "Regular departures on main Kazakhstan destinations",
+    "from": "From",
+    "to": "To",
+    "days": "days",
+    "price_from": "from",
+    "order_route": "Order this route",
+    "cities": {
+      "almaty": "Almaty",
+      "astana": "Astana",
+      "shymkent": "Shymkent",
+      "aktobe": "Aktobe",
+      "karaganda": "Karaganda",
+      "atyrau": "Atyrau",
+      "pavlodar": "Pavlodar",
+      "kostanay": "Kostanay"
+    }
+  },
+  "calculator": {
+    "title": "Price Calculator",
+    "subtitle": "Get an estimate for your shipment",
+    "from": "Origin city",
+    "to": "Destination city",
+    "weight": "Cargo weight (kg)",
+    "volume": "Volume (m³)",
+    "type": "Transport type",
+    "type_ftl": "Full truck",
+    "type_ltl": "Consolidated",
+    "type_express": "Express",
+    "calculate": "Calculate",
+    "result": "Estimated cost",
+    "disclaimer": "Exact price is agreed individually. Call us or submit a request.",
+    "order_now": "Place Order"
+  },
+  "chat": {
+    "title": "AI Assistant",
+    "subtitle": "Ask a question or place an order right here",
+    "placeholder": "Write your question or describe the cargo...",
+    "send": "Send",
+    "thinking": "Thinking...",
+    "welcome": "Hello! I'm the TuranLogix AI assistant. I can help you calculate the cost, answer questions or take a freight order. What are you interested in?",
+    "order_hint": "Want to place an order? Tell me: origin, destination, weight and cargo type."
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "TuranLogix — trusted freight forwarder",
+    "desc": "We specialize in cargo transportation across Kazakhstan. We work with individuals and businesses, providing full documentation support and prompt status updates.",
+    "values": {
+      "reliability": "Reliability",
+      "speed": "Speed",
+      "transparency": "Transparency",
+      "safety": "Safety"
+    }
+  },
+  "contacts": {
+    "title": "Contacts",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "working_hours": "Working hours",
+    "hours": "Mon–Fri: 9:00–18:00, Sat: 10:00–15:00",
+    "send_message": "Send Message"
+  },
+  "auth": {
+    "login": "Sign In",
+    "register": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "full_name": "Full Name",
+    "phone": "Phone",
+    "company": "Company (optional)",
+    "bin": "BIN (optional)",
+    "submit_login": "Sign In",
+    "submit_register": "Create Account",
+    "no_account": "Don't have an account?",
+    "have_account": "Already have an account?",
+    "forgot_password": "Forgot password?"
+  },
+  "orders": {
+    "title": "My Orders",
+    "new": "New Order",
+    "status": {
+      "pending": "Pending",
+      "in_progress": "In Transit",
+      "completed": "Delivered",
+      "cancelled": "Cancelled"
+    },
+    "from": "From",
+    "to": "To",
+    "cargo": "Cargo",
+    "weight": "Weight",
+    "created": "Created",
+    "no_orders": "You have no orders yet"
+  },
+  "footer": {
+    "company": "TuranLogix",
+    "tagline": "Reliable freight forwarding across Kazakhstan",
+    "copyright": "© {{year}} TuranLogix. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "errors": {
+    "required": "Required field",
+    "invalid_email": "Invalid email",
+    "min_length": "Minimum {{count}} characters",
+    "server_error": "Server error. Please try again later.",
+    "network_error": "Network error. Check your connection."
+  }
+}
