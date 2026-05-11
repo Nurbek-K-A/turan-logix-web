@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Sun, Moon, User, LogOut, ChevronDown, Truck } from 'lucide-react'
+import { Menu, X, Sun, Moon, User, LogOut, ChevronDown } from 'lucide-react'
 import { useThemeStore, useAuthStore } from '@/store'
 import { SUPPORTED_LANGUAGES } from '@/i18n'
 import i18n from '@/i18n'
 import clsx from 'clsx'
+import { TuranLogixLogo, TuranLogixIcon } from '@/components/logo'
 
 export default function Navbar() {
   const { t } = useTranslation()
@@ -52,14 +53,23 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-lg bg-brand-500 flex items-center justify-center shadow-glow-orange group-hover:shadow-glow-orange-lg transition-shadow">
-              <Truck className="w-5 h-5 text-white" />
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="font-display font-bold text-white text-lg tracking-tight">TuranLogix</span>
-              <span className="text-[10px] text-brand-400 font-medium tracking-wider uppercase">Logistics</span>
-            </div>
+          <Link to="/" className="flex items-center group" aria-label="Turan Logix — главная">
+            {/* Desktop: full logo */}
+            <span className="hidden md:block">
+              <TuranLogixLogo
+                variant={theme === 'dark' ? 'dark' : 'light'}
+                size="md"
+                showTagline={false}
+              />
+            </span>
+            {/* Mobile: icon only */}
+            <span className="md:hidden">
+              <TuranLogixIcon
+                variant={theme === 'dark' ? 'dark' : 'light'}
+                size={36}
+                withBackground
+              />
+            </span>
           </Link>
 
           {/* Desktop nav */}

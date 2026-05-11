@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 90" fill="none">
+  <!-- Sign: road + star -->
+  <polygon points="16,88 44,88 36,10 24,10" fill="none" stroke="#c8a96e" stroke-width="0.8" opacity="0.22"/>
+  <rect x="28.5" y="68" width="3"   height="12" rx="1.5" fill="#c8a96e" opacity="0.9"/>
+  <rect x="28.8" y="50" width="2.4" height="10" rx="1.2" fill="#c8a96e" opacity="0.65"/>
+  <rect x="29"   y="35" width="2"   height="8"  rx="1"   fill="#c8a96e" opacity="0.42"/>
+  <rect x="29.2" y="23" width="1.6" height="6"  rx="0.8" fill="#c8a96e" opacity="0.26"/>
+  <g transform="translate(30,6)">
+    <polygon points="0,-11 3,-3 11,0 3,3 0,11 -3,3 -11,0 -3,-3" fill="#c8a96e"/>
+    <polygon points="0,-11 3,-3 11,0 3,3 0,11 -3,3 -11,0 -3,-3" fill="#c8a96e" transform="rotate(45)" opacity="0.38"/>
+    <circle cx="0" cy="0" r="17" fill="none" stroke="#c8a96e" stroke-width="0.5" opacity="0.22"/>
+  </g>
+  <!-- Text -->
+  <text x="72" y="44" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="38" fill="#f5f0e8" letter-spacing="5">TURAN</text>
+  <text x="72" y="82" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="38" fill="#c8a96e" letter-spacing="5">LOGIX</text>
+  <!-- Divider -->
+  <line x1="72" y1="88" x2="318" y2="88" stroke="#c8a96e" stroke-width="0.5" opacity="0.2"/>
+</svg>

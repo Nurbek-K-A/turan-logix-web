@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Truck, Phone, Mail, MapPin, MessageCircle, Send } from 'lucide-react'
+import { Phone, Mail, MapPin, MessageCircle, Send } from 'lucide-react'
+import { TuranLogixLogo } from '@/components/logo'
 
 export default function Footer() {
   const { t } = useTranslation()
@@ -12,11 +13,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-brand-500 flex items-center justify-center">
-                <Truck className="w-5 h-5 text-white" />
-              </div>
-              <span className="font-display font-bold text-white text-lg">TuranLogix</span>
+            <div className="mb-4">
+              <TuranLogixLogo variant="dark" size="lg" showTagline={true} />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-4">
               {t('footer.tagline')}
