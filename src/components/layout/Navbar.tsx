@@ -18,6 +18,13 @@ export default function Navbar() {
   const [langOpen, setLangOpen] = useState(false)
   const location = useLocation()
 
+  const handleHomeClick = (e: React.MouseEvent) => {
+    if (location.pathname === '/') {
+      e.preventDefault()
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', onScroll)
@@ -53,7 +60,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center group" aria-label="Turan Logix — главная">
+          <Link to="/" className="flex items-center group" aria-label="Turan Logix — главная" onClick={handleHomeClick}>
             {/* Desktop: full logo */}
             <span className="hidden md:block">
               <TuranLogixLogo
@@ -78,6 +85,7 @@ export default function Navbar() {
               <NavLink
                 key={link.to}
                 to={link.to}
+                onClick={link.to === '/' ? handleHomeClick : undefined}
                 className={({ isActive }) => clsx(
                   'px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200',
                   isActive
@@ -197,6 +205,7 @@ export default function Navbar() {
                 <NavLink
                   key={link.to}
                   to={link.to}
+                  onClick={link.to === '/' ? handleHomeClick : undefined}
                   className={({ isActive }) => clsx(
                     'flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all',
                     isActive ? 'text-brand-400 bg-brand-500/10' : 'text-gray-300 hover:text-white hover:bg-white/5'
