@@ -10,7 +10,7 @@ import AboutSection from '@/components/sections/AboutSection'
 import ContactsSection from '@/components/sections/ContactsSection'
 
 export default function Home() {
-  const { t, i18n } = useTranslation()
+  const { i18n } = useTranslation()
 
   const hreflangLinks = [
     { lang: 'ru', href: 'https://turanlogix.kz/' },
