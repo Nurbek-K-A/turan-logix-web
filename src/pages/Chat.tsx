@@ -6,16 +6,9 @@ import { Bot, Send, User, Sparkles, Loader2, Trash2, MessageSquare } from 'lucid
 import { chatApi, type ChatMessage } from '@/services/api'
 import { useAuthStore } from '@/store'
 
-const QUICK_PROMPTS = [
-  'Сколько стоит перевезти 1 тонну из Алматы в Астану?',
-  'Как оформить заявку на перевозку?',
-  'Какие документы нужны для груза?',
-  'Есть ли перевозки из Китая?',
-  'Как отследить мой груз?',
-]
-
 export default function Chat() {
   const { t } = useTranslation()
+  const QUICK_PROMPTS = t('chat.quick_prompts', { returnObjects: true }) as string[]
   const { user } = useAuthStore()
   const [messages, setMessages] = useState<ChatMessage[]>([
     { role: 'assistant', content: t('chat.welcome') },
@@ -120,7 +113,7 @@ export default function Chat() {
                   className="pt-2"
                 >
                   <p className="text-xs text-gray-500 mb-2 flex items-center gap-1.5">
-                    <MessageSquare className="w-3 h-3" />Частые вопросы:
+                    <MessageSquare className="w-3 h-3" />{t('chat.frequent_questions')}:
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {QUICK_PROMPTS.map(prompt => (
@@ -213,7 +206,7 @@ export default function Chat() {
                 </button>
               </div>
               <p className="text-[10px] text-gray-600 mt-2 text-center">
-                Enter — отправить · Shift+Enter — новая строка · Ответы генерирует ИИ, проверяйте важные данные
+                {t('chat.hint')}
               </p>
             </div>
           </div>
