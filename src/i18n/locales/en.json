@@ -109,7 +109,8 @@
       "Are there shipments from China?",
       "How to track my cargo?"
     ],
-    "hint": "Enter — send · Shift+Enter — new line · Responses are AI-generated, verify important data"
+    "hint": "Enter — send · Shift+Enter — new line · Responses are AI-generated, verify important data",
+    "error": "Sorry, a connection error occurred. Please try again later or contact us directly: +7 700 123 45 67"
   },
   "about": {
     "title": "About Us",

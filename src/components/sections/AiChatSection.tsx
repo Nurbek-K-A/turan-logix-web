@@ -35,7 +35,7 @@ export default function AiChatSection() {
     } catch {
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: 'Извините, произошла ошибка. Попробуйте позже или позвоните нам: +7 700 123 45 67',
+        content: t('chat.error'),
       }])
     } finally {
       setLoading(false)

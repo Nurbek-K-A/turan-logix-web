@@ -60,7 +60,7 @@ export default function Chat() {
     } catch {
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: 'Извините, произошла ошибка соединения. Попробуйте позже или свяжитесь с нами напрямую: +7 700 123 45 67',
+        content: t('chat.error'),
       }])
     } finally {
       setLoading(false)
