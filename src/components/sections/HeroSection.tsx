@@ -13,11 +13,6 @@ const fadeUp = {
   }),
 }
 
-const badges = [
-  { icon: Shield, label: 'Застрахованные грузы' },
-  { icon: Zap, label: 'Онлайн-заявка 24/7' },
-  { icon: Globe, label: 'Весь Казахстан' },
-]
 
 const animatedWords = {
   ru: ['вовремя', 'из Алматы', 'из Астаны', 'из Китая', 'по Казахстану'],
@@ -84,6 +79,12 @@ function AnimatedWord() {
 
 export default function HeroSection() {
   const { t } = useTranslation()
+
+  const badges = [
+    { icon: Shield, label: t('hero.badge_insured') },
+    { icon: Zap, label: t('hero.badge_online') },
+    { icon: Globe, label: t('hero.badge_coverage') },
+  ]
 
   return (
     <>
@@ -187,9 +188,9 @@ export default function HeroSection() {
               animate="visible"
               className="flex flex-wrap gap-3"
             >
-              {badges.map(({ icon: Icon, label }) => (
+              {badges.map(({ icon: Icon, label }, i) => (
                 <div
-                  key={label}
+                  key={i}
                   className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.08] text-gray-400 text-xs"
                 >
                   <Icon className="w-3.5 h-3.5 text-brand-400" />

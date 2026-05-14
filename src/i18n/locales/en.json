@@ -19,7 +19,10 @@
     "cta_order": "Calculate Cost",
     "cta_chat": "Ask AI Assistant",
     "scroll": "Scroll down",
-    "trusted": "Trusted by:"
+    "trusted": "Trusted by:",
+    "badge_insured": "Insured Cargo",
+    "badge_online": "Online Orders 24/7",
+    "badge_coverage": "All Kazakhstan"
   },
   "stats": {
     "routes": "routes",
