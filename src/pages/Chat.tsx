@@ -7,7 +7,7 @@ import { chatApi, type ChatMessage } from '@/services/api'
 import { useAuthStore } from '@/store'
 
 export default function Chat() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const QUICK_PROMPTS = t('chat.quick_prompts', { returnObjects: true }) as string[]
   const { user } = useAuthStore()
   const [messages, setMessages] = useState<ChatMessage[]>([
@@ -18,6 +18,16 @@ export default function Chat() {
   const endRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const messagesContainerRef = useRef<HTMLDivElement>(null)
+
+  // Update welcome message when language changes (only if it's the only message)
+  useEffect(() => {
+    setMessages(prev => {
+      if (prev.length === 1 && prev[0].role === 'assistant') {
+        return [{ role: 'assistant', content: t('chat.welcome') }]
+      }
+      return prev
+    })
+  }, [i18n.language, t])
 
   useEffect(() => {
     const container = messagesContainerRef.current
