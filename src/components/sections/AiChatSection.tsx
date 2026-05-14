@@ -13,13 +13,9 @@ export default function AiChatSection() {
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const endRef = useRef<HTMLDivElement>(null)
-  const isInitialMount = useRef(true)
 
   useEffect(() => {
-    if (isInitialMount.current) {
-      isInitialMount.current = false
-      return
-    }
+    if (messages.length <= 1) return
     endRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
 
