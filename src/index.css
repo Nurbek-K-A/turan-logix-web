@@ -101,6 +101,8 @@ html:not(.dark) .text-gray-500 {
   color: #857550 !important;
 }
 
+html:not(.dark) .border-white\/5,
+html:not(.dark) .border-white\/\[0\.05\],
 html:not(.dark) .border-white\/\[0\.06\],
 html:not(.dark) .border-white\/\[0\.07\],
 html:not(.dark) .border-white\/\[0\.08\],
@@ -112,6 +114,15 @@ html:not(.dark) .bg-white\/\[0\.03\],
 html:not(.dark) .bg-white\/\[0\.04\],
 html:not(.dark) .bg-white\/\[0\.05\] {
   background-color: rgba(200, 169, 110, 0.06) !important;
+}
+
+html:not(.dark) .bg-navy-800\/50,
+html:not(.dark) .bg-navy-800\/60 {
+  background-color: #ede8de !important;
+}
+
+html:not(.dark) .hover\:text-gray-300:hover {
+  color: #3d3520 !important;
 }
 
 /* Navbar in light theme */
