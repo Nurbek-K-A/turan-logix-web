@@ -100,7 +100,17 @@
     "send": "Send",
     "thinking": "Thinking...",
     "welcome": "Hello! I'm the TuranLogix AI assistant. I can help you calculate the cost, answer questions or take a freight order. What are you interested in?",
-    "order_hint": "Want to place an order? Tell me: origin, destination, weight and cargo type."
+    "order_hint": "Want to place an order? Tell me: origin, destination, weight and cargo type.",
+    "frequent_questions": "Common questions",
+    "quick_prompts": [
+      "How much does it cost to ship 1 ton from Almaty to Astana?",
+      "How to place a freight order?",
+      "What documents are needed for cargo?",
+      "Are there shipments from China?",
+      "How to track my cargo?"
+    ],
+    "hint": "Enter — send · Shift+Enter — new line · Responses are AI-generated, verify important data",
+    "error": "Sorry, a connection error occurred. Please try again later or contact us directly: +7 700 123 45 67"
   },
   "about": {
     "title": "About Us",

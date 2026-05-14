@@ -22,7 +22,7 @@ export default function ContactsSection() {
   const inputClass = "w-full bg-white/[0.05] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-brand-500/50 transition-all"
 
   return (
-    <section className="py-20 lg:py-28 bg-navy-800/30">
+    <section className="py-20 lg:py-28 bg-navy-800/50 border-y border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
