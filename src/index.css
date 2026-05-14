@@ -116,6 +116,7 @@ html:not(.dark) .bg-white\/\[0\.05\] {
   background-color: rgba(200, 169, 110, 0.06) !important;
 }
 
+html:not(.dark) .bg-navy-800\/30,
 html:not(.dark) .bg-navy-800\/50,
 html:not(.dark) .bg-navy-800\/60 {
   background-color: #ede8de !important;
