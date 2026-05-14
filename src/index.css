@@ -110,7 +110,7 @@
 
 /* ─── Tandem truck drive animation ─── */
 @keyframes truck-drive {
-  from { transform: translateX(-940px); }
+  from { transform: translateX(-1100px); }
   to   { transform: translateX(calc(100vw + 40px)); }
 }
 .truck-drive {
