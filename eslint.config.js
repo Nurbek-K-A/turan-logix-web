@@ -8,6 +8,14 @@ import tsPlugin from '@typescript-eslint/eslint-plugin'
 export default [
   { ignores: ['dist'] },
   {
+    files: ['vite.config.ts', 'postcss.config.js', 'tailwind.config.js'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
+  {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       parser: tsParser,
@@ -26,6 +34,7 @@ export default [
       ...js.configs.recommended.rules,
       ...tsPlugin.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
+      'no-undef': 'off',
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },

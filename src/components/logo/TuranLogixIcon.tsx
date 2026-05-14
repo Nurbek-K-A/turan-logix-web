@@ -1,5 +1,5 @@
 import React from 'react'
-import { LogoVariant, COLORS } from './TuranLogixLogo'
+import { LogoVariant, COLORS } from './logoTypes'
 
 interface TuranLogixIconProps {
   variant?: LogoVariant

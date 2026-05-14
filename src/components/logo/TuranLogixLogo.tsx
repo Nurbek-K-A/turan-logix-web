@@ -1,7 +1,5 @@
 import React from 'react'
-
-export type LogoVariant = 'dark' | 'light' | 'bw'
-export type LogoSize = 'sm' | 'md' | 'lg' | 'xl'
+import { LogoVariant, LogoSize, COLORS } from './logoTypes'
 
 interface TuranLogixLogoProps {
   variant?: LogoVariant
@@ -15,30 +13,6 @@ const SIZES: Record<LogoSize, { icon: number; turan: number; logix: number; tagl
   md: { icon: 48, turan: 26, logix: 26, tagline: 8   },
   lg: { icon: 64, turan: 38, logix: 38, tagline: 10  },
   xl: { icon: 88, turan: 52, logix: 52, tagline: 12  },
-}
-
-export const COLORS: Record<LogoVariant, { turan: string; logix: string; tagline: string; icon: string; divider: string }> = {
-  dark: {
-    turan:   '#f5f0e8',
-    logix:   '#c8a96e',
-    tagline: '#c8a96e',
-    icon:    '#c8a96e',
-    divider: '#c8a96e',
-  },
-  light: {
-    turan:   '#1c1a14',
-    logix:   '#b8923a',
-    tagline: '#857550',
-    icon:    '#b8923a',
-    divider: '#b8923a',
-  },
-  bw: {
-    turan:   '#1a1a1a',
-    logix:   '#555555',
-    tagline: '#666666',
-    icon:    '#222222',
-    divider: '#aaaaaa',
-  },
 }
 
 export const TuranLogixLogo: React.FC<TuranLogixLogoProps> = ({
