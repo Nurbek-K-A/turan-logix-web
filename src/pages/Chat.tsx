@@ -24,9 +24,13 @@ export default function Chat() {
   const [loading, setLoading] = useState(false)
   const endRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const messagesContainerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: 'smooth' })
+    const container = messagesContainerRef.current
+    if (container) {
+      container.scrollTop = container.scrollHeight
+    }
   }, [messages])
 
   // Auto-resize textarea
@@ -75,7 +79,7 @@ export default function Chat() {
         <meta name="description" content="ИИ-ассистент TuranLogix. Задайте вопрос о перевозке или оформите заявку онлайн." />
       </Helmet>
 
-      <div className="flex flex-col h-screen pt-16 lg:pt-20">
+      <div className="flex flex-col flex-1 pt-16 lg:pt-20 overflow-hidden">
         <div className="flex-1 flex flex-col max-w-3xl mx-auto w-full px-4 sm:px-6 pb-4 overflow-hidden">
           {/* Header */}
           <div className="flex items-center justify-between py-4">
@@ -106,7 +110,7 @@ export default function Chat() {
           </div>
 
           {/* Messages area */}
-          <div className="flex-1 overflow-y-auto rounded-2xl bg-white/[0.02] border border-white/[0.06] flex flex-col">
+          <div ref={messagesContainerRef} className="flex-1 overflow-y-auto rounded-2xl bg-white/[0.02] border border-white/[0.06] flex flex-col">
             <div className="flex-1 p-4 space-y-4">
               {/* Quick prompts — only at start */}
               {messages.length === 1 && (
