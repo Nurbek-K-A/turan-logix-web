@@ -140,6 +140,7 @@ export default function HeroSection() {
               className="font-display text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight mb-6"
             >
               {t('hero.title_1')}{' '}
+              <br />
               <AnimatedWord />
               <br />
               {t('hero.title_3')}
