@@ -30,9 +30,6 @@ export default function RoutesTable() {
         marginBottom: 20,
       }}>
         <div>
-          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: 'var(--pop)', letterSpacing: '0.2em', textTransform: 'uppercase' as const }}>
-            {rp.tableEyebrow}
-          </div>
           <h2 style={{
             fontFamily: "'Space Grotesk', system-ui, sans-serif",
             fontWeight: 700,

@@ -23,7 +23,7 @@ export default function Layout() {
       color: 'var(--text)',
     }}>
       {!isFullScreen && <RedesignNavbar />}
-      <main style={{ flex: 1 }}>
+      <main style={{ flex: 1, paddingTop: isFullScreen ? 0 : 61 }}>
         <Outlet />
       </main>
       {!isFullScreen && <RedesignFooter />}

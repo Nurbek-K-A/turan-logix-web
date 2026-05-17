@@ -16,7 +16,7 @@ export default function Services() {
         accentTitle={sp.accentTitle}
         subtitle={sp.subtitle}
       />
-      <ServicesGrid count={6} eyebrow={sp.gridEyebrow} title={sp.gridTitle} />
+      <ServicesGrid count={6} title={sp.gridTitle} />
     </>
   )
 }
