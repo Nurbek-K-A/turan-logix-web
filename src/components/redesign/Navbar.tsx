@@ -55,7 +55,8 @@ export default function RedesignNavbar() {
         justifyContent: 'space-between',
         padding: '18px 40px',
         borderBottom: '1px solid var(--border)',
-        background: theme === 'dark' ? 'rgba(20,17,13,0.82)' : 'rgba(244,237,225,0.82)',
+        //background: theme === 'dark' ? 'rgba(20,17,13,0.82)' : 'rgba(244,237,225,0.82)',
+        background: 'var(--bg-alt)',
         backdropFilter: 'blur(10px)',
         WebkitBackdropFilter: 'blur(10px)',
       }}
