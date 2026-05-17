@@ -31,7 +31,7 @@ const SERVICES_BASE: [string, Record<LangKey, string>, Record<LangKey, string>][
 
 interface ServicesGridProps {
   count?: number
-  eyebrow: string
+  eyebrow?: string
   title: string
 }
 
@@ -48,13 +48,13 @@ export default function ServicesGrid({ count = 6, eyebrow, title }: ServicesGrid
         marginBottom: 24,
       }}>
         <div>
-          <div style={{
+          {eyebrow && <div style={{
             fontFamily: "'JetBrains Mono', monospace",
             fontSize: 11,
             color: 'var(--pop)',
             letterSpacing: '0.2em',
             textTransform: 'uppercase' as const,
-          }}>{eyebrow}</div>
+          }}>{eyebrow}</div>}
           <h2 style={{
             fontFamily: "'Space Grotesk', system-ui, sans-serif",
             fontWeight: 700,
@@ -65,13 +65,6 @@ export default function ServicesGrid({ count = 6, eyebrow, title }: ServicesGrid
             lineHeight: 1.05,
           }}>{title}</h2>
         </div>
-        <span style={{
-          fontFamily: "'JetBrains Mono', monospace",
-          fontSize: 10,
-          letterSpacing: '0.18em',
-          textTransform: 'uppercase' as const,
-          color: 'var(--muted-deep)',
-        }}>{items.length} →</span>
       </div>
 
       <div className="services-grid" style={{

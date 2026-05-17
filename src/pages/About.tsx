@@ -25,13 +25,6 @@ export default function About() {
           margin: '0 auto',
         }}>
           <div>
-            <div style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: 11,
-              color: 'var(--pop)',
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase' as const,
-            }}>{ap.sectionEyebrow}</div>
             <h2 style={{
               fontFamily: "'Space Grotesk', system-ui, sans-serif",
               fontWeight: 700,

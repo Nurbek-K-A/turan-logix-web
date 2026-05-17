@@ -18,7 +18,6 @@ export default function Home() {
       <TruckAnimation />
       <ServicesGrid
         count={3}
-        eyebrow={t('redesign.servicesPage.homeEyebrow')}
         title={t('redesign.servicesPage.homeTitle')}
       />
     </>

@@ -63,8 +63,10 @@ export default function RedesignNavbar() {
       <header
         className="rdn"
         style={{
-          position: 'sticky',
+          position: 'fixed',
           top: 0,
+          left: 0,
+          right: 0,
           zIndex: 40,
           display: 'flex',
           alignItems: 'center',
