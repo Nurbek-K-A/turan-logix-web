@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import i18n from '@/i18n'
@@ -5,7 +6,6 @@ import { useThemeStore } from '@/store'
 import { LogoWordmark } from './Logo'
 import { LangSwitcher } from './LangSwitcher'
 
-/* Sun / Moon icons as tiny inline SVGs to avoid lucide-react dependency issues */
 function SunIcon() {
   return (
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -30,10 +30,23 @@ function MoonIcon() {
   )
 }
 
+function HamburgerIcon({ open }: { open: boolean }) {
+  return open ? (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  ) : (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+      <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/>
+    </svg>
+  )
+}
+
 export default function RedesignNavbar() {
   const { t } = useTranslation()
   const lang = i18n.language
   const { theme, toggle } = useThemeStore()
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const navLinks = [
     { to: '/',         label: t('nav.home') },
@@ -43,109 +56,208 @@ export default function RedesignNavbar() {
     { to: '/contacts', label: t('nav.contacts') },
   ]
 
+  const closeMenu = () => setMenuOpen(false)
+
   return (
-    <header
-      className="rdn"
-      style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 40,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '18px 40px',
-        borderBottom: '1px solid var(--border)',
-        //background: theme === 'dark' ? 'rgba(20,17,13,0.82)' : 'rgba(244,237,225,0.82)',
-        background: 'var(--bg-alt)',
-        backdropFilter: 'blur(10px)',
-        WebkitBackdropFilter: 'blur(10px)',
-      }}
-    >
-      <Link to="/" aria-label="Turan Logix — главная" style={{ textDecoration: 'none' }}>
-        <LogoWordmark subtitle={t('redesign.logoSubtitle')} size="sm" />
-      </Link>
+    <>
+      <header
+        className="rdn"
+        style={{
+          position: 'sticky',
+          top: 0,
+          zIndex: 40,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '18px 40px',
+          borderBottom: '1px solid var(--border)',
+          background: 'var(--bg-alt)',
+          backdropFilter: 'blur(10px)',
+          WebkitBackdropFilter: 'blur(10px)',
+        }}
+      >
+        <Link to="/" onClick={closeMenu} aria-label="Turan Logix — главная" style={{ textDecoration: 'none' }}>
+          <LogoWordmark subtitle={t('redesign.logoSubtitle')} size="sm" />
+        </Link>
 
-      <nav style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-        {navLinks.map(({ to, label }) => (
-          <NavLink
-            key={to}
-            to={to}
-            end={to === '/'}
-            style={({ isActive }) => ({
-              border: 'none',
-              background: isActive ? 'var(--surface-hover)' : 'transparent',
-              fontFamily: "'Inter', system-ui, sans-serif",
-              fontSize: 13,
-              fontWeight: 500,
-              padding: '8px 14px',
+        {/* Desktop nav */}
+        <nav className="rdn-nav" style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+          {navLinks.map(({ to, label }) => (
+            <NavLink
+              key={to}
+              to={to}
+              end={to === '/'}
+              style={({ isActive }) => ({
+                border: 'none',
+                background: isActive ? 'var(--surface-hover)' : 'transparent',
+                fontFamily: "'Inter', system-ui, sans-serif",
+                fontSize: 13,
+                fontWeight: 500,
+                padding: '8px 14px',
+                borderRadius: 'var(--radius-sm)',
+                color: isActive ? 'var(--text-bright)' : 'var(--muted)',
+                cursor: 'pointer',
+                textDecoration: 'none',
+                transition: 'background 0.15s, color 0.15s',
+              })}
+            >
+              {label}
+            </NavLink>
+          ))}
+        </nav>
+
+        {/* Desktop controls */}
+        <div className="rdn-controls" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <LangSwitcher lang={lang} />
+          <button
+            onClick={toggle}
+            aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+            style={{
+              width: 32, height: 32,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
               borderRadius: 'var(--radius-sm)',
-              color: isActive ? 'var(--text-bright)' : 'var(--muted)',
+              border: '1px solid var(--border)',
+              background: 'var(--surface)',
+              color: 'var(--muted)',
               cursor: 'pointer',
-              textDecoration: 'none',
               transition: 'background 0.15s, color 0.15s',
-            })}
+            }}
           >
-            {label}
-          </NavLink>
-        ))}
-      </nav>
+            {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+          </button>
+          <Link
+            to="/login"
+            style={{
+              fontFamily: "'Inter', system-ui, sans-serif",
+              fontSize: 13, color: 'var(--muted)',
+              padding: '8px 6px', textDecoration: 'none',
+            }}
+          >
+            {t('redesign.login')}
+          </Link>
+          <Link
+            to="/contacts"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: 8,
+              fontFamily: "'Space Grotesk', system-ui, sans-serif",
+              fontWeight: 600, fontSize: 12.5,
+              padding: '9px 16px',
+              borderRadius: 'var(--radius-md)',
+              background: 'var(--accent)',
+              color: 'var(--on-accent)',
+              textDecoration: 'none',
+            }}
+          >
+            {t('redesign.cta')}
+            <span style={{ fontFamily: "'JetBrains Mono', monospace" }}>→</span>
+          </Link>
+        </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-        <LangSwitcher lang={lang} />
-
-        {/* Theme toggle */}
+        {/* Mobile hamburger */}
         <button
-          onClick={toggle}
-          aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+          className="rdn-hamburger"
+          onClick={() => setMenuOpen(o => !o)}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
           style={{
-            width: 32,
-            height: 32,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            display: 'none', /* overridden by CSS media query */
+            alignItems: 'center', justifyContent: 'center',
+            width: 36, height: 36,
             borderRadius: 'var(--radius-sm)',
             border: '1px solid var(--border)',
             background: 'var(--surface)',
-            color: 'var(--muted)',
+            color: 'var(--text)',
             cursor: 'pointer',
-            transition: 'background 0.15s, color 0.15s',
           }}
         >
-          {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+          <HamburgerIcon open={menuOpen} />
         </button>
+      </header>
 
-        <Link
-          to="/login"
+      {/* Mobile menu drawer */}
+      {menuOpen && (
+        <div
           style={{
-            fontFamily: "'Inter', system-ui, sans-serif",
-            fontSize: 13,
-            color: 'var(--muted)',
-            padding: '8px 6px',
-            textDecoration: 'none',
+            position: 'fixed',
+            top: 61,
+            left: 0,
+            right: 0,
+            zIndex: 39,
+            background: 'var(--bg-alt)',
+            borderBottom: '1px solid var(--border)',
+            padding: '12px 16px 20px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 4,
+            backdropFilter: 'blur(10px)',
+            WebkitBackdropFilter: 'blur(10px)',
           }}
         >
-          {t('redesign.login')}
-        </Link>
-        <Link
-          to="/contacts"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 8,
-            fontFamily: "'Space Grotesk', system-ui, sans-serif",
-            fontWeight: 600,
-            fontSize: 12.5,
-            padding: '9px 16px',
-            borderRadius: 'var(--radius-md)',
-            background: 'var(--accent)',
-            color: 'var(--on-accent)',
-            textDecoration: 'none',
-          }}
-        >
-          {t('redesign.cta')}
-          <span style={{ fontFamily: "'JetBrains Mono', monospace" }}>→</span>
-        </Link>
-      </div>
-    </header>
+          {navLinks.map(({ to, label }) => (
+            <NavLink
+              key={to}
+              to={to}
+              end={to === '/'}
+              onClick={closeMenu}
+              style={({ isActive }) => ({
+                border: 'none',
+                background: isActive ? 'var(--surface-hover)' : 'transparent',
+                fontFamily: "'Inter', system-ui, sans-serif",
+                fontSize: 15,
+                fontWeight: 500,
+                padding: '10px 12px',
+                borderRadius: 'var(--radius-sm)',
+                color: isActive ? 'var(--text-bright)' : 'var(--muted)',
+                cursor: 'pointer',
+                textDecoration: 'none',
+                display: 'block',
+              })}
+            >
+              {label}
+            </NavLink>
+          ))}
+
+          <div style={{ height: 1, background: 'var(--border)', margin: '8px 0' }} />
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '4px 0' }}>
+            <LangSwitcher lang={lang} />
+            <button
+              onClick={toggle}
+              aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+              style={{
+                width: 32, height: 32,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                borderRadius: 'var(--radius-sm)',
+                border: '1px solid var(--border)',
+                background: 'var(--surface)',
+                color: 'var(--muted)',
+                cursor: 'pointer',
+              }}
+            >
+              {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+            </button>
+          </div>
+
+          <Link
+            to="/contacts"
+            onClick={closeMenu}
+            style={{
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+              fontFamily: "'Space Grotesk', system-ui, sans-serif",
+              fontWeight: 600, fontSize: 14,
+              padding: '11px 20px',
+              borderRadius: 'var(--radius-md)',
+              background: 'var(--accent)',
+              color: 'var(--on-accent)',
+              textDecoration: 'none',
+              marginTop: 4,
+            }}
+          >
+            {t('redesign.cta')}
+            <span style={{ fontFamily: "'JetBrains Mono', monospace" }}>→</span>
+          </Link>
+        </div>
+      )}
+    </>
   )
 }

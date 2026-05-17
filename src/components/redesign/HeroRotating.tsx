@@ -106,7 +106,7 @@ export default function HeroRotating() {
   const longest = words.reduce((a, b) => (a.length > b.length ? a : b), '')
 
   return (
-    <section style={{ position: 'relative', padding: '64px 40px 56px', overflow: 'hidden' }}>
+    <section className="hero-section-pad" style={{ position: 'relative', padding: '64px 40px 56px', overflow: 'hidden' }}>
       {/* bg grid */}
       <div style={{
         position: 'absolute',
@@ -129,7 +129,7 @@ export default function HeroRotating() {
         pointerEvents: 'none',
       }} />
 
-      <div style={{
+      <div className="hero-grid" style={{
         position: 'relative',
         display: 'grid',
         gridTemplateColumns: '1.4fr 1fr',
@@ -169,6 +169,7 @@ export default function HeroRotating() {
 
           <h1
             aria-live="polite"
+            className="hero-h1"
             style={{
               fontFamily: "'Space Grotesk', system-ui, sans-serif",
               fontWeight: 700,
@@ -261,7 +262,7 @@ export default function HeroRotating() {
           </div>
 
           {/* Stat rail */}
-          <div style={{
+          <div className="hero-stat-rail" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
             gap: 0,
@@ -297,7 +298,9 @@ export default function HeroRotating() {
         </div>
 
         {/* Right card */}
-        <HeroRouteCard />
+        <div className="hero-card">
+          <HeroRouteCard />
+        </div>
       </div>
     </section>
   )

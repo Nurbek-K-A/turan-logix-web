@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif&family=Noto+Sans:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -183,10 +183,114 @@ html:not(.dark) .border-brand-500\/30  { border-color: rgba(47,85,114,0.30) !imp
 html:not(.dark) .border-brand-500\/40  { border-color: rgba(47,85,114,0.40) !important; }
 html:not(.dark) .border-brand-500\/50  { border-color: rgba(47,85,114,0.50) !important; }
 
-/* Навбар */
+/* Навбар — в светлой теме фон совпадает с футером */
 html:not(.dark) header {
-  background-color: rgba(229,235,240,0.95) !important;
+  background-color: rgba(241,244,248,0.95) !important;
   border-bottom-color: rgba(22,34,43,0.12) !important;
 }
 html:not(.dark) header a,
 html:not(.dark) header button { color: #2c3a47; }
+
+/* ─── Казахские символы кириллицы (Ұ, Қ, Ғ, Ң, Ү, Ə, Ħ, Ö…) ─────────────
+   JetBrains Mono и Space Grotesk не включают расширенную кириллицу Казахстана.
+   Переопределяем шрифт для этих кодовых точек через Noto Sans
+   (поддерживает полный диапазон), у которого идентичная метрика с Inter.
+   ─────────────────────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: local('Noto Sans'), local('Segoe UI'), local('Arial'), local('Helvetica Neue');
+  unicode-range: U+0400-052F;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: local('Noto Sans'), local('Segoe UI'), local('Arial'), local('Helvetica Neue');
+  unicode-range: U+0400-052F;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: local('Noto Sans'), local('Segoe UI'), local('Arial'), local('Helvetica Neue');
+  unicode-range: U+0490-052F;
+}
+
+/* ─── Responsive helpers ──────────────────────────────────────────────────── */
+
+/* Navbar */
+.rdn-hamburger { display: none !important; }
+
+@media (max-width: 767px) {
+  .rdn { padding: 12px 16px !important; }
+  .rdn-nav { display: none !important; }
+  .rdn-controls { display: none !important; }
+  .rdn-hamburger { display: flex !important; }
+}
+
+/* Hero */
+@media (max-width: 767px) {
+  .hero-section-pad { padding: 32px 16px 40px !important; }
+  .hero-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .hero-card { display: none !important; }
+  .hero-h1 { font-size: clamp(40px, 11vw, 64px) !important; line-height: 1.05 !important; }
+  .hero-stat-rail { max-width: 100% !important; }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .hero-section-pad { padding: 48px 24px !important; }
+  .hero-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+  .hero-h1 { font-size: 52px !important; }
+}
+
+/* StatsBar */
+@media (max-width: 767px) {
+  .stats-bar-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 20px 16px !important;
+  }
+  .stats-bar-grid > div { border-left: none !important; padding: 12px 10px !important; }
+  .stats-bar-grid > div:nth-child(2n) { border-left: 1px solid var(--border) !important; }
+  .stats-bar-grid > div:nth-child(n+3) { border-top: 1px solid var(--border) !important; }
+}
+
+/* ServicesGrid */
+@media (max-width: 767px) {
+  .services-section-pad { padding: 32px 16px !important; }
+  .services-grid { grid-template-columns: 1fr !important; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .services-section-pad { padding: 40px 24px !important; }
+  .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* PageHeader */
+@media (max-width: 767px) {
+  .page-header-section { padding: 32px 16px 24px !important; }
+  .page-header-h1 { font-size: 36px !important; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .page-header-section { padding: 40px 24px 28px !important; }
+  .page-header-h1 { font-size: 48px !important; }
+}
+
+/* RoutesTable */
+@media (max-width: 767px) {
+  .routes-table-section { padding: 24px 16px 40px !important; }
+  .routes-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .routes-table-inner { min-width: 520px; }
+}
+
+/* Footer */
+@media (max-width: 767px) {
+  .footer-inner {
+    flex-direction: column !important;
+    gap: 20px !important;
+    align-items: flex-start !important;
+    padding: 24px 16px !important;
+  }
+}

@@ -22,7 +22,7 @@ export default function RoutesTable() {
   }
 
   return (
-    <section style={{ padding: '32px 40px 48px' }}>
+    <section className="routes-table-section" style={{ padding: '32px 40px 48px' }}>
       <div style={{
         display: 'flex',
         alignItems: 'baseline',
@@ -45,7 +45,8 @@ export default function RoutesTable() {
         </div>
       </div>
 
-      <div style={{ border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', overflow: 'hidden' }}>
+      <div className="routes-table-scroll">
+      <div className="routes-table-inner" style={{ border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', overflow: 'hidden' }}>
         {/* Header row */}
         <div style={{
           display: 'grid',
@@ -81,6 +82,7 @@ export default function RoutesTable() {
             <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 13, color: r[5] ? 'var(--accent)' : 'var(--muted-deep)', textAlign: 'right' }}>→</span>
           </div>
         ))}
+      </div>
       </div>
     </section>
   )

@@ -118,6 +118,7 @@ export default function StatsBar() {
   return (
     <section
       ref={ref}
+      className="stats-bar-grid"
       style={{
         padding: '32px 40px',
         borderTop: '1px solid var(--border)',

@@ -40,7 +40,7 @@ export default function ServicesGrid({ count = 6, eyebrow, title }: ServicesGrid
   const items = SERVICES_BASE.slice(0, count)
 
   return (
-    <section style={{ padding: '48px 40px' }}>
+    <section className="services-section-pad" style={{ padding: '48px 40px' }}>
       <div style={{
         display: 'flex',
         alignItems: 'baseline',
@@ -74,7 +74,7 @@ export default function ServicesGrid({ count = 6, eyebrow, title }: ServicesGrid
         }}>{items.length} →</span>
       </div>
 
-      <div style={{
+      <div className="services-grid" style={{
         display: 'grid',
         gridTemplateColumns: `repeat(${Math.min(count, 3)}, 1fr)`,
         gap: 14,
