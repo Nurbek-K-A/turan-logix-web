@@ -13,7 +13,7 @@ export default function RedesignFooter() {
   ]
 
   return (
-    <footer style={{
+    <footer className="footer-inner" style={{
       padding: '28px 40px',
       borderTop: '1px solid var(--border)',
       display: 'flex',

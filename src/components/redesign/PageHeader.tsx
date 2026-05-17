@@ -9,7 +9,7 @@ interface PageHeaderProps {
 
 export function PageHeader({ eyebrow, title, accentTitle, subtitle }: PageHeaderProps) {
   return (
-    <section style={{ padding: '52px 40px 36px', borderBottom: '1px solid var(--border)' }}>
+    <section className="page-header-section" style={{ padding: '52px 40px 36px', borderBottom: '1px solid var(--border)' }}>
       <span style={{
         display: 'inline-flex',
         alignItems: 'center',
@@ -26,7 +26,7 @@ export function PageHeader({ eyebrow, title, accentTitle, subtitle }: PageHeader
       }}>
         {eyebrow}
       </span>
-      <h1 style={{
+      <h1 className="page-header-h1" style={{
         fontFamily: "'Space Grotesk', system-ui, sans-serif",
         fontWeight: 700,
         fontSize: 60,
