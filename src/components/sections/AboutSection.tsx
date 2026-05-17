@@ -89,7 +89,7 @@ export default function AboutSection() {
             </div>
 
             {/* Floating badge */}
-            <div className="absolute -bottom-4 -right-4 bg-brand-500 rounded-2xl p-4 shadow-glow-orange">
+            <div className="absolute -bottom-4 -right-4 bg-brand-500 rounded-2xl p-4 shadow-glow-blue">
               <div className="text-white text-2xl font-display font-black">3+</div>
               <div className="text-brand-200 text-xs">{t('stats.years')}</div>
             </div>

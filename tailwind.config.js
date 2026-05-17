@@ -6,32 +6,24 @@ export default {
     extend: {
       colors: {
         brand: {
-          50:  '#fdf8f0',
-          100: '#faefd9',
-          200: '#f5ddb0',
-          300: '#edc97e',
-          400: '#c8a96e',  // ← основной акцент (золото)
-          500: '#b8923a',  // ← кнопки, hover
-          600: '#9a7a2e',
-          700: '#7a5f22',
-          800: '#5c4518',
-          900: '#3d2d0e',
+          200: '#dde7ef',
+          300: '#c4d6e4',
+          400: '#aac3d8',
+          500: '#9bb8d0',
+          600: '#7fa5c2',
+          700: '#5f86a5',
         },
         dark: {
-          900: '#1c1f26',  // ← основной фон
-          800: '#22262f',
-          700: '#282d38',
-          600: '#2f3542',
-          500: '#3a4154',
-          400: '#464e63',
+          900: '#22303c',
+          800: '#2b3b48',
+          700: '#354655',
         },
         navy: {
-          900: '#1c1f26',  // ← совпадает с dark для совместимости
-          800: '#22262f',
-          700: '#282d38',
-          600: '#2f3542',
-          500: '#3a4154',
-          400: '#464e63',
+          900: '#22303c',
+          800: '#2b3b48',
+          700: '#354655',
+          600: '#3f5263',
+          500: '#4a5e72',
         },
       },
       fontFamily: {
@@ -59,12 +51,12 @@ export default {
         },
       },
       backgroundImage: {
-        'grid-dark': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+        'grid-dark': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e2eaf0' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
       },
       boxShadow: {
-        'glow-orange':    '0 0 40px rgba(200, 169, 110, 0.15)',
-        'glow-orange-lg': '0 0 80px rgba(200, 169, 110, 0.25)',
-        'card-dark':      '0 4px 24px rgba(0, 0, 0, 0.4)',
+        'glow-blue':    '0 0 40px rgba(155, 184, 208, 0.18)',
+        'glow-blue-lg': '0 0 80px rgba(155, 184, 208, 0.28)',
+        'card-dark':    '0 4px 24px rgba(0, 0, 0, 0.4)',
       },
     },
   },
