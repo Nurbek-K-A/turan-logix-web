@@ -210,7 +210,7 @@ export default function Chat() {
                 <button
                   onClick={() => send()}
                   disabled={!input.trim() || loading}
-                  className="w-10 h-10 rounded-xl bg-brand-500 hover:bg-brand-400 disabled:bg-brand-500/30 disabled:cursor-not-allowed flex items-center justify-center flex-shrink-0 transition-all duration-200 shadow-glow-orange disabled:shadow-none"
+                  className="w-10 h-10 rounded-xl bg-brand-500 hover:bg-brand-400 disabled:bg-brand-500/30 disabled:cursor-not-allowed flex items-center justify-center flex-shrink-0 transition-all duration-200 shadow-glow-blue disabled:shadow-none"
                 >
                   <Send className="w-4 h-4 text-white" />
                 </button>

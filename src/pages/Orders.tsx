@@ -160,7 +160,7 @@ export default function Orders() {
             <p className="text-gray-400 text-sm mt-1">{orders?.length ?? 0} заявок всего</p>
           </div>
           <button onClick={() => setShowCreate(true)}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-white text-sm font-semibold shadow-glow-orange transition-all">
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-white text-sm font-semibold shadow-glow-blue transition-all">
             <Plus className="w-4 h-4" /><span className="hidden sm:inline">Новая заявка</span>
           </button>
         </motion.div>

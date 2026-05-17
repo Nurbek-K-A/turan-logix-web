@@ -167,7 +167,7 @@ export default function HeroSection() {
             >
               <Link
                 to="/contacts"
-                className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-white font-semibold shadow-glow-orange hover:shadow-glow-orange-lg transition-all duration-300"
+                className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-white font-semibold shadow-glow-blue hover:shadow-glow-blue-lg transition-all duration-300"
               >
                 {t('hero.cta_order')}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

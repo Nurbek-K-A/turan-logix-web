@@ -100,7 +100,7 @@ export default function OrderDetail() {
                 <div key={step} className="relative flex flex-col items-center gap-2 z-10">
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center border-2 transition-all ${
                     i < cfg.step ? 'bg-brand-500 border-brand-500' :
-                    i === cfg.step ? 'bg-navy-800 border-brand-500 shadow-glow-orange' :
+                    i === cfg.step ? 'bg-navy-800 border-brand-500 shadow-glow-blue' :
                     'bg-navy-800 border-white/10'
                   }`}>
                     {i < cfg.step

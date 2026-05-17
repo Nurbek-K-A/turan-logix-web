@@ -173,7 +173,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   to="/orders"
-                  className="px-4 py-2 rounded-xl bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold shadow-glow-orange hover:shadow-glow-orange-lg transition-all duration-200"
+                  className="px-4 py-2 rounded-xl bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold shadow-glow-blue hover:shadow-glow-blue-lg transition-all duration-200"
                 >
                   {t('nav.order')}
                 </Link>
