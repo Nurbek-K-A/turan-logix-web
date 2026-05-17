@@ -13,14 +13,19 @@ export function LogoMark({ size = 56, radius = 0.14 }: LogoMarkProps) {
       aria-label="Turan Logix"
     >
       <rect x="0" y="0" width="100" height="100" rx={radius * 100} fill="var(--accent)" />
-      {/* T crossbar */}
-      <rect x="14" y="22" width="48" height="11" fill="var(--on-accent)" />
-      {/* T+L stem */}
-      <rect x="33" y="22" width="11" height="56" fill="var(--on-accent)" />
-      {/* L horizontal */}
-      <rect x="44" y="67" width="32" height="11" fill="var(--on-accent)" />
-      {/* Arrow head */}
-      <polygon points="76,62 90,72.5 76,83" fill="var(--on-accent)" />
+      {/* chevrons+star glyph centered in 100×100 (glyph native width=60, offset x+20) */}
+      <g transform="translate(20, 0)">
+        <g stroke="var(--on-accent)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none">
+          <path d="M 20 90 L 30 80 L 40 90" opacity="0.95" />
+          <path d="M 22 76 L 30 68 L 38 76" opacity="0.72" />
+          <path d="M 24 62 L 30 56 L 36 62" opacity="0.50" />
+          <path d="M 26 48 L 30 44 L 34 48" opacity="0.30" />
+        </g>
+        <g transform="translate(30, 26)">
+          <polygon points="0,-11 3,-3 11,0 3,3 0,11 -3,3 -11,0 -3,-3" fill="var(--on-accent)" />
+          <polygon points="0,-11 3,-3 11,0 3,3 0,11 -3,3 -11,0 -3,-3" fill="var(--on-accent)" transform="rotate(45)" opacity="0.45" />
+        </g>
+      </g>
     </svg>
   )
 }

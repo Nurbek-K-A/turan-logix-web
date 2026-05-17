@@ -3,18 +3,18 @@ export type LogoSize = 'sm' | 'md' | 'lg' | 'xl'
 
 export const COLORS: Record<LogoVariant, { turan: string; logix: string; tagline: string; icon: string; divider: string }> = {
   dark: {
-    turan:   '#f5f0e8',
-    logix:   '#c8a96e',
-    tagline: '#c8a96e',
-    icon:    '#c8a96e',
-    divider: '#c8a96e',
+    icon:    '#9bb8d0',
+    turan:   '#f4f8fc',
+    logix:   '#9bb8d0',
+    tagline: '#90a0ae',
+    divider: '#f4f8fc',
   },
   light: {
-    turan:   '#1c1a14',
-    logix:   '#b8923a',
-    tagline: '#857550',
-    icon:    '#b8923a',
-    divider: '#b8923a',
+    icon:    '#2f5572',
+    turan:   '#08111a',
+    logix:   '#2f5572',
+    tagline: '#52606e',
+    divider: '#08111a',
   },
   bw: {
     turan:   '#1a1a1a',

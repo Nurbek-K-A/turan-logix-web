@@ -1,11 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="4.5" fill="#a07832"/>
-  <!-- T crossbar -->
-  <rect x="4.5" y="7" width="15.4" height="3.5" fill="#faf5e9"/>
-  <!-- T+L stem -->
-  <rect x="10.6" y="7" width="3.5" height="18" fill="#faf5e9"/>
-  <!-- L horizontal -->
-  <rect x="14.1" y="21.5" width="10.2" height="3.5" fill="#faf5e9"/>
-  <!-- Arrow head -->
-  <polygon points="24.3,19.8 28.8,23.2 24.3,26.5" fill="#faf5e9"/>
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" rx="6" fill="#2f5572" />
+  <g transform="translate(16, 16)">
+    <polygon points="0,-10 2.8,-2.8 10,0 2.8,2.8 0,10 -2.8,2.8 -10,0 -2.8,-2.8" fill="#f1f4f8" />
+    <polygon points="0,-10 2.8,-2.8 10,0 2.8,2.8 0,10 -2.8,2.8 -10,0 -2.8,-2.8"
+             fill="#f1f4f8" transform="rotate(45)" opacity="0.50" />
+  </g>
 </svg>
