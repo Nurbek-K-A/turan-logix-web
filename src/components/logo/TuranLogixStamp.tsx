@@ -73,25 +73,17 @@ export const TuranLogixStamp: React.FC<TuranLogixStampProps> = ({
 
       {/* Central sign */}
       <g transform={`translate(${signCx}, ${signCy}) scale(${scale})`}>
-        {/* Road trapezoid */}
-        <polygon
-          points="16,88 44,88 36,10 24,10"
-          fill="none"
-          stroke={c.icon}
-          strokeWidth="0.8"
-          opacity={0.22}
-          transform="translate(-30,-82) scale(0.72)"
-        />
-        {/* Dashes */}
-        <rect x="-1.08" y="-14"   width="2.16" height="8.64" rx="1.08" fill={c.icon} opacity={0.9}  />
-        <rect x="-0.86" y="-25.6" width="1.73" height="7.2"  rx="0.86" fill={c.icon} opacity={0.65} />
-        <rect x="-0.72" y="-35"   width="1.44" height="5.76" rx="0.72" fill={c.icon} opacity={0.42} />
-        <rect x="-0.58" y="-42.5" width="1.15" height="4.32" rx="0.58" fill={c.icon} opacity={0.26} />
-        {/* Star */}
-        <g transform="translate(0,-52)">
-          <polygon points="0,-11 3,-3 11,0 3,3 0,11 -3,3 -11,0 -3,-3" fill={c.icon} />
-          <polygon points="0,-11 3,-3 11,0 3,3 0,11 -3,3 -11,0 -3,-3" fill={c.icon} transform="rotate(45)" opacity={0.38} />
-          <circle cx="0" cy="0" r="17" fill="none" stroke={c.icon} strokeWidth="0.5" opacity={0.22} />
+        <g transform="translate(-30, -50) scale(0.9)">
+          <g stroke={c.icon} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none">
+            <path d="M 20 90 L 30 80 L 40 90" opacity="0.95" />
+            <path d="M 22 76 L 30 68 L 38 76" opacity="0.72" />
+            <path d="M 24 62 L 30 56 L 36 62" opacity="0.50" />
+            <path d="M 26 48 L 30 44 L 34 48" opacity="0.30" />
+          </g>
+          <g transform="translate(30, 26)">
+            <polygon points="0,-11 3,-3 11,0 3,3 0,11 -3,3 -11,0 -3,-3" fill={c.icon} />
+            <polygon points="0,-11 3,-3 11,0 3,3 0,11 -3,3 -11,0 -3,-3" fill={c.icon} transform="rotate(45)" opacity="0.45" />
+          </g>
         </g>
       </g>
 
