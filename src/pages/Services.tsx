@@ -1,6 +1,22 @@
-// Services.tsx
 import { Helmet } from 'react-helmet-async'
-import ServicesSection from '@/components/sections/ServicesSection'
+import { useTranslation } from 'react-i18next'
+import { PageHeader } from '@/components/redesign/PageHeader'
+import ServicesGrid from '@/components/redesign/ServicesGrid'
+
 export default function Services() {
-  return (<><Helmet><title>Услуги — TuranLogix</title></Helmet><div><ServicesSection /></div></>)
+  const { t } = useTranslation()
+  const sp = t('redesign.servicesPage', { returnObjects: true }) as Record<string, string>
+
+  return (
+    <>
+      <Helmet><title>{t('nav.services')} — Turan Logix</title></Helmet>
+      <PageHeader
+        eyebrow={sp.eyebrow}
+        title={sp.title}
+        accentTitle={sp.accentTitle}
+        subtitle={sp.subtitle}
+      />
+      <ServicesGrid count={6} eyebrow={sp.gridEyebrow} title={sp.gridTitle} />
+    </>
+  )
 }

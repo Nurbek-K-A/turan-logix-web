@@ -35,9 +35,10 @@ export default {
         },
       },
       fontFamily: {
-        display: ['Manrope', 'system-ui', 'sans-serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        sans:    ['Inter', 'system-ui', 'sans-serif'],
+        mono:    ['JetBrains Mono', 'monospace'],
+        serif:   ['Instrument Serif', 'serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',

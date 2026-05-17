@@ -1,157 +1,129 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Design tokens: Steppe Onyx A · Light ─── */
+:root {
+  --bg:            #f4ede1;
+  --bg-alt:        #faf5e9;
+  --surface:       rgba(26,22,14,0.035);
+  --surface-hover: rgba(26,22,14,0.06);
+  --border:        rgba(120,90,40,0.16);
+  --border-strong: rgba(120,90,40,0.30);
+  --text:          #1d1814;
+  --text-bright:   #0a0805;
+  --muted:         #6b6045;
+  --muted-deep:    #857550;
+  --accent:        #a07832;
+  --accent-soft:   rgba(160,120,50,0.10);
+  --accent-deep:   #7a5d22;
+  --pop:           #a07832;
+  --signal:        #5a7a2a;
+  --on-accent:     #faf5e9;
+  --radius-sm:     6px;
+  --radius-md:     10px;
+  --radius-lg:     16px;
+  --radius-pill:   999px;
+}
+
+/* ─── Design tokens: Steppe Onyx A · Dark ─── */
+.dark {
+  --bg:            #14110d;
+  --bg-alt:        #1d1814;
+  --surface:       rgba(244,237,225,0.04);
+  --surface-hover: rgba(244,237,225,0.07);
+  --border:        rgba(244,237,225,0.08);
+  --border-strong: rgba(244,237,225,0.16);
+  --text:          #f4ede1;
+  --text-bright:   #fffaf0;
+  --muted:         #9b8c75;
+  --muted-deep:    #6b6045;
+  --accent:        #d4a574;
+  --accent-soft:   rgba(212,165,116,0.10);
+  --accent-deep:   #b08840;
+  --pop:           #d4a574;
+  --signal:        #a8c97b;
+  --on-accent:     #14110d;
+}
+
 @layer base {
   *, *::before, *::after { box-sizing: border-box; }
 
   :root {
-    color-scheme: dark;
+    color-scheme: light dark;
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-dark-900 text-amber-50 font-sans antialiased;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    @apply bg-brand-500/30 text-white;
+    background: rgba(160,120,50,0.25);
+    color: var(--text-bright);
   }
 
-  /* Custom scrollbar */
   ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { @apply bg-navy-900; }
-  ::-webkit-scrollbar-thumb { @apply bg-navy-600 rounded-full; }
-  ::-webkit-scrollbar-thumb:hover { @apply bg-navy-500; }
-
-  /* Select styling for dark theme */
-  select {
-    -webkit-appearance: none;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-    background-position: right 12px center;
-    background-repeat: no-repeat;
-    background-size: 16px;
-    padding-right: 40px !important;
-  }
-
-  option {
-    @apply bg-navy-800 text-white;
-  }
+  ::-webkit-scrollbar-track { background: var(--bg-alt); }
+  ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--muted-deep); }
 }
 
+/* ─── Animation keyframes ─── */
+@keyframes word-in {
+  from { opacity: 0; transform: translateY(0.55em); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes word-out {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-0.55em); }
+}
+.word-in  { animation: word-in  0.45s cubic-bezier(.2,.7,.2,1) both; }
+.word-out { animation: word-out 0.35s cubic-bezier(.5,0,.7,.3)  both; }
+
+@keyframes ai-pulse {
+  0%, 100% { box-shadow: 0 12px 32px rgba(20,17,13,0.22), 0 2px 6px rgba(20,17,13,0.10), 0 0 0 0 rgba(160,120,50,0.45); }
+  50%      { box-shadow: 0 12px 32px rgba(20,17,13,0.22), 0 2px 6px rgba(20,17,13,0.10), 0 0 0 12px rgba(160,120,50,0); }
+}
+.ai-pulse { animation: ai-pulse 2.4s ease-out infinite; }
+
+@keyframes panel-in {
+  from { opacity: 0; transform: translateX(20px) scale(0.96); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+.panel-in { animation: panel-in 0.28s cubic-bezier(.2,.8,.2,1) both; transform-origin: bottom right; }
+
+@keyframes flow { to { stroke-dashoffset: -40; } }
+.route-flow      { animation: flow 1.6s linear infinite; }
+.route-flow-slow { animation: flow 3.2s linear infinite; }
+
+@keyframes blink { 0%,80%,100% { opacity: 0.25; } 40% { opacity: 1; } }
+.typ-dot { animation: blink 1.2s infinite ease-in-out; }
+.typ-dot:nth-child(2) { animation-delay: 0.18s; }
+.typ-dot:nth-child(3) { animation-delay: 0.36s; }
+
+/* ─── Tandem truck drive animation ─── */
+@keyframes truck-drive {
+  from { transform: translateX(-1100px); }
+  to   { transform: translateX(calc(100vw + 40px)); }
+}
+.truck-drive {
+  animation: truck-drive 18s linear infinite;
+  will-change: transform;
+}
+
+/* ─── Legacy Tailwind compat kept for auth/order pages ─── */
 @layer utilities {
   .text-gradient-brand {
-    background: linear-gradient(135deg, theme('colors.brand.400'), theme('colors.brand.600'));
+    background: linear-gradient(135deg, #c8a96e, #9a7a2e);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  .shadow-glow-gold {
-    box-shadow: 0 0 40px rgba(200, 169, 110, 0.15);
-  }
-  .shadow-glow-gold-lg {
-    box-shadow: 0 0 80px rgba(200, 169, 110, 0.25);
-  }
-}
-
-/* Light theme — warm cream palette to complement gold accent #c8a96e */
-html:not(.dark) {
-  color-scheme: light;
-}
-
-html:not(.dark) body {
-  background-color: #f5f0e8;
-  color: #1c1a14;
-}
-
-html:not(.dark) .bg-navy-900,
-html:not(.dark) .bg-dark-900 {
-  background-color: #f5f0e8 !important;
-}
-
-html:not(.dark) .bg-navy-800,
-html:not(.dark) .bg-dark-800 {
-  background-color: #ede8de !important;
-}
-
-html:not(.dark) .bg-navy-700,
-html:not(.dark) .bg-dark-700 {
-  background-color: #e4ddd1 !important;
-}
-
-html:not(.dark) .text-white {
-  color: #1c1a14 !important;
-}
-
-html:not(.dark) .hover\:text-white:hover {
-  color: #1c1a14 !important;
-}
-
-html:not(.dark) .text-gray-100,
-html:not(.dark) .text-gray-200 {
-  color: #1c1a14 !important;
-}
-
-html:not(.dark) .text-gray-300 {
-  color: #3d3520 !important;
-}
-
-html:not(.dark) .text-gray-400 {
-  color: #6b6045 !important;
-}
-
-html:not(.dark) .text-gray-500 {
-  color: #857550 !important;
-}
-
-html:not(.dark) .border-white\/5,
-html:not(.dark) .border-white\/\[0\.05\],
-html:not(.dark) .border-white\/\[0\.06\],
-html:not(.dark) .border-white\/\[0\.07\],
-html:not(.dark) .border-white\/\[0\.08\],
-html:not(.dark) .border-white\/\[0\.10\] {
-  border-color: rgba(180, 150, 90, 0.15) !important;
-}
-
-html:not(.dark) .bg-white\/\[0\.02\],
-html:not(.dark) .bg-white\/\[0\.03\],
-html:not(.dark) .bg-white\/\[0\.04\],
-html:not(.dark) .bg-white\/\[0\.05\],
-html:not(.dark) .bg-white\/\[0\.06\] {
-  background-color: rgba(200, 169, 110, 0.06) !important;
-}
-
-html:not(.dark) .bg-white\/10 {
-  background-color: rgba(200, 169, 110, 0.12) !important;
-}
-
-html:not(.dark) .bg-navy-800\/30,
-html:not(.dark) .bg-navy-800\/50,
-html:not(.dark) .bg-navy-800\/60 {
-  background-color: #ede8de !important;
-}
-
-html:not(.dark) .hover\:text-gray-300:hover {
-  color: #3d3520 !important;
-}
-
-/* Navbar in light theme */
-html:not(.dark) header {
-  background-color: rgba(245, 240, 232, 0.95) !important;
-  border-bottom-color: rgba(180, 150, 90, 0.15) !important;
-}
-
-html:not(.dark) header a,
-html:not(.dark) header button {
-  color: #3d3520;
 }
