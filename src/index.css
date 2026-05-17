@@ -105,13 +105,13 @@
 .typ-dot:nth-child(2) { animation-delay: 0.18s; }
 .typ-dot:nth-child(3) { animation-delay: 0.36s; }
 
-/* ─── Tandem truck drive animation ─── */
+/* ─── Truck drive animation ─── */
 @keyframes truck-drive {
-  from { transform: translateX(-1100px); }
+  from { transform: translateX(-700px); }
   to   { transform: translateX(calc(100vw + 40px)); }
 }
 .truck-drive {
-  animation: truck-drive 18s linear infinite;
+  animation: truck-drive 14s linear infinite;
   will-change: transform;
 }
 
